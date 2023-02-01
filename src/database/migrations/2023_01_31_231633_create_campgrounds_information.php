@@ -17,11 +17,17 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('address');
-            $table->string('phone_number');
-            $table->business_hours;
+            $table->string('phone_number', 21);
             $table->integer('holiday');
-            $table->season;
-            $table->timestamps;
+            $table->string('season');
+            $table->string('check_in');
+            $table->string('check_out');
+            $table->string('image');
+            $table->string('url');
+            $table->decimal('latitude', $precision = 12, $scale = 9);
+            $table->decimal('longitude', $precision = 12, $scale = 9);
+            $table->string('place_id');
+            $table->timestamps();
         });
     }
 
