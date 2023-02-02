@@ -38,6 +38,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('campgrounds_information');
+        Schema::dropIfExists('campground_informations');
     }
 };
