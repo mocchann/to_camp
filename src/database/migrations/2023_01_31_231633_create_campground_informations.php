@@ -13,7 +13,7 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('campgrounds_information', function (Blueprint $table) {
+        Schema::create('campground_informations', function (Blueprint $table) {
             $table->id();
             $table->string('name');
             $table->string('address');
