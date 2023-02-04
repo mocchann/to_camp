@@ -15,8 +15,8 @@ return new class extends Migration
     {
         Schema::create('campground_information_around_campsite', function (Blueprint $table) {
             $table->id();
-            $table->bigIncrements('campground_informations_id');
-            $table->bigIncrements('around_campsites_id');
+            $table->unsignedBigInteger('campground_informations_id');
+            $table->unsignedBigInteger('around_campsites_id');
             $table->timestamps();
         });
     }
