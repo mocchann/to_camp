@@ -28,6 +28,8 @@ return new class extends Migration
             $table->decimal('longitude', $precision = 12, $scale = 9);
             $table->string('place_id');
             $table->timestamps();
+
+            $table->softDeletes();
         });
     }
 

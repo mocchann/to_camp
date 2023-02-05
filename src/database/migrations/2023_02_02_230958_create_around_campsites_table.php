@@ -20,6 +20,8 @@ return new class extends Migration
             $table->string('near_spa');
             $table->string('near_supermarket');
             $table->timestamps();
+
+            $table->softDeletes();
         });
     }
 

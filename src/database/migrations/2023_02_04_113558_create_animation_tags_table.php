@@ -18,6 +18,8 @@ return new class extends Migration
             $table->boolean('laid_back_camp');
             $table->boolean('two_people_solo_camp');
             $table->timestamps();
+
+            $table->softDeletes();
         });
     }
 

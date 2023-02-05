@@ -18,6 +18,8 @@ return new class extends Migration
             $table->unsignedBigInteger('campground_informations_id');
             $table->unsignedBigInteger('around_campsites_id');
             $table->timestamps();
+
+            $table->softDeletes();
         });
     }
 

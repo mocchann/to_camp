@@ -23,6 +23,8 @@ return new class extends Migration
             $table->bigInteger('child_price');
             $table->string('description');
             $table->timestamps();
+
+            $table->softDeletes();
         });
     }
 

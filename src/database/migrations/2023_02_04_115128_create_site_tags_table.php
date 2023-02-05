@@ -27,6 +27,8 @@ return new class extends Migration
             $table->boolean('car');
             $table->boolean('pet');
             $table->timestamps();
+            
+            $table->softDeletes();
         });
     }
 

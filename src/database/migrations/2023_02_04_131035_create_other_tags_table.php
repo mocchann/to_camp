@@ -22,6 +22,8 @@ return new class extends Migration
             $table->boolean('is_firewood');
             $table->boolean('is_ten_minute_walk');
             $table->timestamps();
+
+            $table->softDeletes();
         });
     }
 

@@ -25,6 +25,8 @@ return new class extends Migration
             $table->boolean('flush_toilet');
             $table->boolean('simple_toilet');
             $table->timestamps();
+
+            $table->softDeletes();
         });
     }
 

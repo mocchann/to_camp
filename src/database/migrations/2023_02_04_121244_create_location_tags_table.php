@@ -21,6 +21,8 @@ return new class extends Migration
             $table->boolean('mountain');
             $table->boolean('woods');
             $table->timestamps();
+
+            $table->softDeletes();
         });
     }
 
