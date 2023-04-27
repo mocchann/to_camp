@@ -18,7 +18,8 @@ return new class extends Migration
             $table->foreignId('campground_id')->constrained()->cascadeOnDelete();
             $table->time('start_time');
             $table->time('end_time');
-            $table->integer('price');
+            $table->integer('adult_price');
+            $table->integer('child_price');
             $table->string('description');
             $table->timestamps();
         });
