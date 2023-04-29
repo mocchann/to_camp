@@ -30,6 +30,11 @@ class Campground extends Model
         return $this->hasMany(LateCheckOut::class);
     }
 
+    public function dayCamps()
+    {
+        return $this->hasMany(DayCamp::class);
+    }
+
     public function siteTags()
     {
         return $this->belongsToMany(SiteTag::class);
