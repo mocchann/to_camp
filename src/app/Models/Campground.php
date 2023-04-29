@@ -54,4 +54,9 @@ class Campground extends Model
     {
         return $this->belongsToMany(FacilityTag::class);
     }
+
+    public function mountainTags()
+    {
+        return $this->belongsToMany(Mountain::class);
+    }
 }

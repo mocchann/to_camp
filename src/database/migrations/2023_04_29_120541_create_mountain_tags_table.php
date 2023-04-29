@@ -13,10 +13,9 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('mountains', function (Blueprint $table) {
+        Schema::create('mountain_tags', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->integer('elevation');
             $table->timestamps();
         });
     }
@@ -28,6 +27,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('mountains');
+        Schema::dropIfExists('mountain_tags');
     }
 };

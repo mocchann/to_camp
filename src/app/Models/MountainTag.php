@@ -5,12 +5,12 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Mountains extends Model
+class MountainTag extends Model
 {
     use HasFactory;
 
-    public function campground()
+    public function campgrounds()
     {
-        return $this->belongsTo(Campground::class);
+        return $this->belongsToMany(Campground::class);
     }
 }
