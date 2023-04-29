@@ -13,13 +13,9 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('facilities', function (Blueprint $table) {
+        Schema::create('facility_tags', function (Blueprint $table) {
             $table->id();
-            $table->string('near_station');
-            $table->integer('working_minutes');
-            $table->string('near_ic');
-            $table->string('near_spa');
-            $table->string('near_supermarket');
+            $table->string('name');
             $table->timestamps();
         });
     }
@@ -31,6 +27,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('facilities');
+        Schema::dropIfExists('facility_tags');
     }
 };

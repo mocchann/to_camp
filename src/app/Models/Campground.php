@@ -4,15 +4,11 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Ramsey\Uuid\Guid\Guid;
 
 class Campground extends Model
 {
     use HasFactory;
-
-    public function facilities()
-    {
-        return $this->belongsToMany(Facility::class);
-    }
 
     public function sectionSites()
     {
@@ -52,5 +48,10 @@ class Campground extends Model
     public function animeTags()
     {
         return $this->belongsToMany(AnimeTag::class);
+    }
+
+    public function facilityTags()
+    {
+        return $this->belongsToMany(FacilityTag::class);
     }
 }
