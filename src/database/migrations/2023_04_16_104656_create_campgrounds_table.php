@@ -24,7 +24,7 @@ return new class extends Migration
             $table->string('check_in_time');
             $table->string('check_out_time');
             $table->string('image');
-            $table->string('field_url');
+            $table->string('website_url');
             $table->decimal('latitude', $precision = 12, $scale = 9);
             $table->decimal('longitude', $precision = 12, $scale = 9);
             $table->string('place_id');
