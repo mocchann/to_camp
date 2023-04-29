@@ -33,4 +33,24 @@ class Campground extends Model
     {
         return $this->hasMany(LateCheckOut::class);
     }
+
+    public function siteTags()
+    {
+        return $this->belongsToMany(SiteTag::class);
+    }
+
+    public function locationTags()
+    {
+        return $this->belongsToMany(LocationTag::class);
+    }
+
+    public function amenityTags()
+    {
+        return $this->belongsToMany(AmenityTag::class);
+    }
+
+    public function animeTags()
+    {
+        return $this->belongsToMany(AnimeTag::class);
+    }
 }
