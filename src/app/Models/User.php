@@ -47,4 +47,9 @@ class User extends Authenticatable
     {
         return $this->belongsToMany(Bookmark::class);
     }
+
+    public function reviews()
+    {
+        return $this->belongsToMany(Review::class);
+    }
 }
