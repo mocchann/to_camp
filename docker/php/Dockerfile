@@ -30,7 +30,7 @@ RUN curl -sL https://deb.nodesource.com/setup_12.x | bash -
 RUN rm -rf node_modules
 RUN apt-get install -y nodejs
 RUN npm install npm -g n --save-dev cross-env
-RUN n 16.17.0
+RUN n 14.17.0
 RUN npm cache clear --force
 RUN npm install webpack --save
 RUN npm install node-sass --nodedir=/usr/bin/node
