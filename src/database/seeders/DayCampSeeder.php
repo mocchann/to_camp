@@ -2,10 +2,9 @@
 
 namespace Database\Seeders;
 
-use Carbon\Carbon;
+use App\Models\DayCamp;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Facades\DB;
 
 class DayCampSeeder extends Seeder
 {
@@ -16,13 +15,6 @@ class DayCampSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('day_camps')->insert([
-            'campground_id' => 1,
-            'start_time' => Carbon::createFromTime(9, 0),
-            'end_time' => Carbon::createFromTime(17, 0),
-            'adult_price' => 1000,
-            'child_price' => 500,
-            'description' => '備考',
-        ]);
+        DayCamp::factory()->create();
     }
 }

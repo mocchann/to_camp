@@ -2,10 +2,9 @@
 
 namespace Database\Seeders;
 
-use Carbon\Carbon;
+use App\Models\LateCheckOut;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Facades\DB;
 
 class LateCheckOutSeeder extends Seeder
 {
@@ -16,13 +15,6 @@ class LateCheckOutSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('late_check_outs')->insert([
-            'campground_id' => 1,
-            'end_time' => Carbon::createFromTime(16, 0),
-            'site_price' => 1000,
-            'adult_price' => 1000,
-            'child_price' => 500,
-            'description' => '備考',
-        ]);
+        LateCheckOut::factory()->create();
     }
 }
