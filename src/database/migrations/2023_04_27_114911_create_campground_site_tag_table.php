@@ -13,10 +13,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('campground_mountain_tags', function (Blueprint $table) {
+        Schema::create('campground_site_tag', function (Blueprint $table) {
             $table->id();
             $table->foreignId('campground_id')->constrained()->cascadeOnDelete();
-            $table->foreignId('mountain_tag_id')->constrained()->cascadeOnDelete();
+            $table->foreignId('site_tag_id')->constrained()->cascadeOnDelete();
             $table->timestamps();
         });
     }
@@ -28,6 +28,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('campground_mountain_tags');
+        Schema::dropIfExists('campground_site_tag');
     }
 };
