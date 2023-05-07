@@ -16,6 +16,7 @@ return new class extends Migration
         Schema::create('mountain_tags', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->integer('elevation');
             $table->timestamps();
         });
     }
