@@ -11,6 +11,6 @@ class AmenityTag extends Model
 
     public function campgrounds()
     {
-        $this->belongsToMany(Campground::class);
+        return $this->belongsToMany(Campground::class);
     }
 }
