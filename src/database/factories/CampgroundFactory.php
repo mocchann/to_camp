@@ -30,7 +30,7 @@ class CampgroundFactory extends Factory
             'website_url' => 'https://example.com',
             'latitude' => 35.075488804371034,
             'longitude' => 133.55041164417705,
-            'place_id' => 'ChIJLW0Bxxy-VjURHbn6mTG5GL4'
+            'place_id' => 'ChIJLW0Bxxy-VjURHbn6mTG5GL4',
         ];
     }
 }
