@@ -14,7 +14,7 @@ class FacilityTagFactory extends Factory
      *
      * @return array<string, mixed>
      */
-    public function definition()
+    public function definition(): array
     {
         return [
             'name' => '大佐山駅',

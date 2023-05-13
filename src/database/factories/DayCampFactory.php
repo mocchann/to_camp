@@ -16,7 +16,7 @@ class DayCampFactory extends Factory
      *
      * @return array<string, mixed>
      */
-    public function definition()
+    public function definition(): array
     {
         return [
             'campground_id' => Campground::factory(),
@@ -24,7 +24,7 @@ class DayCampFactory extends Factory
             'end_time' => Carbon::createFromTime(17, 0),
             'adult_price' => 1000,
             'child_price' => 500,
-            'description' => '備考'
+            'description' => '備考',
         ];
     }
 }

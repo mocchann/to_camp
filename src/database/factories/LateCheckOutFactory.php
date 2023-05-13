@@ -16,7 +16,7 @@ class LateCheckOutFactory extends Factory
      *
      * @return array<string, mixed>
      */
-    public function definition()
+    public function definition(): array
     {
         return [
             'campground_id' => Campground::factory(),
@@ -24,7 +24,7 @@ class LateCheckOutFactory extends Factory
             'site_price' => 1000,
             'adult_price' => 1000,
             'child_price' => 500,
-            'description' => '備考'
+            'description' => '備考',
         ];
     }
 }

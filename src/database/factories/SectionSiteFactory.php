@@ -15,7 +15,7 @@ class SectionSiteFactory extends Factory
      *
      * @return array<string, mixed>
      */
-    public function definition()
+    public function definition(): array
     {
         return [
             'campground_id' => Campground::factory(),
