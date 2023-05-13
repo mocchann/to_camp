@@ -2,9 +2,9 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\AnimeTag;
+use App\Models\Campground;
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Facades\DB;
 
 class AnimeTagSeeder extends Seeder
 {
@@ -15,8 +15,6 @@ class AnimeTagSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('anime_tags')->insert([
-            'name' => 'ゆるキャン△',
-        ]);
+        AnimeTag::factory()->has(Campground::factory())->create();
     }
 }

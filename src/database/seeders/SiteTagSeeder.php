@@ -2,7 +2,8 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\Campground;
+use App\Models\SiteTag;
 use Illuminate\Database\Seeder;
 
 class SiteTagSeeder extends Seeder
@@ -14,6 +15,6 @@ class SiteTagSeeder extends Seeder
      */
     public function run()
     {
-        //
+        SiteTag::factory()->has(Campground::factory())->create();
     }
 }
