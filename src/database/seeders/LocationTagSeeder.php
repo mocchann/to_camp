@@ -2,9 +2,9 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\Campground;
+use App\Models\LocationTag;
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Facades\DB;
 
 class LocationTagSeeder extends Seeder
 {
@@ -15,8 +15,6 @@ class LocationTagSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('location_tags')->insert([
-            'name' => '山',
-        ]);
+        LocationTag::factory()->has(Campground::factory())->create();
     }
 }

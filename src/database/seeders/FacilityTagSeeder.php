@@ -2,9 +2,9 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\Campground;
+use App\Models\FacilityTag;
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Facades\DB;
 
 class FacilityTagSeeder extends Seeder
 {
@@ -15,8 +15,6 @@ class FacilityTagSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('facility_tags')->insert([
-            'name' => '大佐山駅',
-        ]);
+        FacilityTag::factory()->has(Campground::factory())->create();
     }
 }

@@ -2,14 +2,12 @@
 
 namespace Database\Factories;
 
-use App\Models\Campground;
-use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Bookmark>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\MountainTag>
  */
-class BookmarkFactory extends Factory
+class MountainTagFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -19,8 +17,8 @@ class BookmarkFactory extends Factory
     public function definition(): array
     {
         return [
-            'campground_id' => Campground::factory(),
-            'user_id' => User::factory(),
+            'name' => '大佐山',
+            'elevation' => 600,
         ];
     }
 }

@@ -3,7 +3,6 @@
 namespace Database\Seeders;
 
 use App\Models\DayCamp;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
 class DayCampSeeder extends Seeder

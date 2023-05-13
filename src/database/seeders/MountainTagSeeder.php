@@ -2,9 +2,9 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\Campground;
+use App\Models\MountainTag;
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Facades\DB;
 
 class MountainTagSeeder extends Seeder
 {
@@ -15,9 +15,6 @@ class MountainTagSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('mountain_tags')->insert([
-            'name' => '大佐山',
-            'elevation' => 665,
-        ]);
+        MountainTag::factory()->has(Campground::factory())->create();
     }
 }

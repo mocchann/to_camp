@@ -15,10 +15,10 @@ class SectionSiteFactory extends Factory
      *
      * @return array<string, mixed>
      */
-    public function definition()
+    public function definition(): array
     {
         return [
-            'campground_id' => Campground::factory()->make()->first()->id,
+            'campground_id' => Campground::factory(),
             'min_size' => 45,
             'max_size' => 120,
             'site_price' => 4500,
