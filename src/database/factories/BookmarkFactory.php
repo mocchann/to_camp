@@ -19,8 +19,8 @@ class BookmarkFactory extends Factory
     public function definition()
     {
         return [
-            'campground_id' => Campground::factory()->make()->first()->id,
-            'user_id' => User::factory()->make()->first()->id,
+            'campground_id' => Campground::factory(),
+            'user_id' => User::factory(),
         ];
     }
 }

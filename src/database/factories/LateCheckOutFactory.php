@@ -19,7 +19,7 @@ class LateCheckOutFactory extends Factory
     public function definition()
     {
         return [
-            'campground_id' => Campground::factory()->make()->first()->id,
+            'campground_id' => Campground::factory(),
             'end_time' => Carbon::createFromTime(16, 0),
             'site_price' => 1000,
             'adult_price' => 1000,

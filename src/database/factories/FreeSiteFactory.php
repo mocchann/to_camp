@@ -18,7 +18,7 @@ class FreeSiteFactory extends Factory
     public function definition()
     {
         return [
-            'campground_id' => Campground::factory()->make()->first()->id,
+            'campground_id' => Campground::factory(),
             'min_size' => 45,
             'max_size' => 120,
             'site_price' => 4500,

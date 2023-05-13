@@ -19,7 +19,7 @@ class DayCampFactory extends Factory
     public function definition()
     {
         return [
-            'campground_id' => Campground::factory()->make()->first()->id,
+            'campground_id' => Campground::factory(),
             'start_time' => Carbon::createFromTime(9, 0),
             'end_time' => Carbon::createFromTime(17, 0),
             'adult_price' => 1000,

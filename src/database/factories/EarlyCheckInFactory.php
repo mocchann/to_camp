@@ -19,7 +19,7 @@ class EarlyCheckInFactory extends Factory
     public function definition()
     {
         return [
-            'campground_id' => Campground::factory()->make()->first()->id,
+            'campground_id' => Campground::factory(),
             'start_time' => Carbon::createFromTime(11, 0),
             'site_price' => 1000,
             'adult_price' => 1000,
