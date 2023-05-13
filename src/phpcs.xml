@@ -1,0 +1,17 @@
+<ruleset name="PSR12/Laravel">
+    <description>PSR12 ruleset for Laravel Application</description>
+
+    <arg name="extensions" value="php"/>
+
+    <rule ref="PSR12"/>
+
+    <arg name="colors"/>
+
+    <arg value="ps"/>
+
+    <exclude-pattern>./bootstrap/</exclude-pattern>
+    <exclude-pattern>./node_modules/</exclude-pattern>
+    <exclude-pattern>./vendor/</exclude-pattern>
+    <exclude-pattern>./storage/</exclude-pattern>
+    <exclude-pattern>./tests/</exclude-pattern>
+</ruleset>
