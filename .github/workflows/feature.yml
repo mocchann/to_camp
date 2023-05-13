@@ -33,7 +33,7 @@ jobs:
           extensions: 'mysql, mysqli, pdo_mysql'
 
       - name: Add permissions
-        run: chmod -R 777 storage bootstrap/cache
+        run: chmod -R 777 src/storage src/bootstrap/cache
         shell: bash
 
       - name: Composer install
