@@ -11,6 +11,8 @@ jobs:
     services:
       mysql:
         image: mysql:8.0
+        ports:
+          - 3306/tcp
         env:
           MYSQL_ROOT_PASSWORD: ''
           MYSQL_DATABASE: 'to_camp'
