@@ -13,7 +13,7 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('campground_anime_tag', function (Blueprint $table) {
+        Schema::create('anime_tag_campground', function (Blueprint $table) {
             $table->id();
             $table->foreignId('campground_id')->constrained()->cascadeOnDelete();
             $table->foreignId('anime_tag_id')->constrained()->cascadeOnDelete();
@@ -28,6 +28,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('campground_anime_tag');
+        Schema::dropIfExists('anime_tag_campground');
     }
 };
