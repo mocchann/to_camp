@@ -1,0 +1,47 @@
+name: Run by push to feature branch
+
+on:
+  push:
+    branches:
+      - 'feature/*'
+
+jobs:
+  laravel-setup-and-lint-test:
+    runs-on: ubuntu-latest
+    services:
+      mysql:
+        image: mysql:8.0
+        env:
+          MYSQL_ROOT_PASSWORD: ''
+          MYSQL_DATABASE: 'to_camp'
+          MYSQL_ALLOW_EMPTY_PASSWORD: 'yes'
+        options: >-
+          --health-cmd "mysqladmin" ping -h localhost"
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: PHP set up
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: php8.1
+          tools: composer:v2.5.5
+          extensions: 'mysql, mysqli, pdo_mysql'
+
+      - name: Add permissions
+        run: chmod -R 777 storage bootstrap/cache
+        shell: bash
+
+      - name: Composer install
+        run: composer install -n --prefer-dist
+        shell: bash
+
+      - name: Run code sniffer
+        run: ./vendor/bin/phpcs --standard=phpcs.xml ./
+        shell: bash
+
+      - name: Run phpunit
+        run: ./vendor/bin/phpunit
+        shell: bash
