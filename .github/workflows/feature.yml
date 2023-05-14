@@ -48,6 +48,12 @@ jobs:
           ./vendor/bin/phpcs --standard=phpcs.xml ./
         shell: bash
 
+      - name: Prepare testing
+        run: |
+          cp .env.example .env
+          php artisan key:generate
+          php artisan migrate
+
       - name: Run phpunit
         run: |
           cd src/
