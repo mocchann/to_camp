@@ -14,6 +14,7 @@ jobs:
         ports:
           - 3306/tcp
         env:
+          MYSQL_DB_HOST: 127.0.0.1
           MYSQL_ROOT_PASSWORD: ''
           MYSQL_DATABASE: 'to_camp'
           MYSQL_ALLOW_EMPTY_PASSWORD: 'yes'
@@ -53,7 +54,12 @@ jobs:
           cd src/
           cp .env.example .env
           php artisan key:generate
-          php artisan migrate
+          cp .env .env.testing
+          php artisan migrate:refresh
+        env:
+          APP_ENV: 'testing'
+          DB_HOST: 127.0.0.1
+          DB_PORT: 3306
 
       - name: Run phpunit
         run: |
