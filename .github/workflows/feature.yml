@@ -53,7 +53,6 @@ jobs:
           cd src/
           cp .env.example .env
           php artisan key:generate
-          cp .env .env.testing
           php artisan migrate:refresh
         env:
           APP_ENV: 'testing'
