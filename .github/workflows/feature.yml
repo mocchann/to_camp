@@ -61,8 +61,8 @@ jobs:
           php artisan migrate:refresh
         env:
           APP_ENV: 'testing'
-          DB_HOST: 127.0.0.1
-          DB_PORT: 3306
+          # DB_HOST: 127.0.0.1
+          # DB_PORT: 3306
         shell: bash
 
       - name: Run phpunit
