@@ -33,19 +33,23 @@ jobs:
           extensions: 'mysql, mysqli, pdo_mysql'
 
       - name: Add permissions
-        run: |
-          ls -la
-          chmod -R 777 src/storage src/bootstrap/cache
+        run: chmod -R 777 src/storage src/bootstrap/cache
         shell: bash
 
       - name: Composer install
-        run: composer install -n --prefer-dist
+        run: |
+          cd src/
+          composer install -n --prefer-dist
         shell: bash
 
       - name: Run code sniffer
-        run: ./vendor/bin/phpcs --standard=phpcs.xml ./
+        run: |
+          cd src/
+          ./vendor/bin/phpcs --standard=phpcs.xml ./
         shell: bash
 
       - name: Run phpunit
-        run: ./vendor/bin/phpunit
+        run: |
+          cd src/
+          ./vendor/bin/phpunit
         shell: bash
