@@ -59,7 +59,9 @@ jobs:
           DB_PORT: 3306
 
       - name: Run migration
-        run: php artisan migrate:refresh
+        run: |
+          cd src/
+          php artisan migrate:refresh
         shell: bash
 
       - name: Run phpunit
