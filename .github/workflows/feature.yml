@@ -53,11 +53,14 @@ jobs:
           cd src/
           cp .env.example .env
           php artisan key:generate
-          php artisan migrate:refresh
         env:
           APP_ENV: 'testing'
           DB_HOST: 127.0.0.1
           DB_PORT: 3306
+
+      - name: Run migration
+        run: php artisan migrate:refresh
+        shell: bash
 
       - name: Run phpunit
         run: |
