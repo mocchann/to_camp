@@ -69,4 +69,8 @@ jobs:
         run: |
           cd src/
           php artisan test
+        env:
+          APP_ENV: 'testing'
+          DB_HOST: 127.0.0.1
+          DB_PORT: ${{ job.services.mysql.ports['3306'] }}
         shell: bash
