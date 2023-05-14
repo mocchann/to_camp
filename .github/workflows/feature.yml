@@ -54,7 +54,7 @@ jobs:
           cp .env.example .env
           php artisan key:generate
         env:
-          APP_ENV: 'testing'
+          # APP_ENV: 'testing'
           DB_HOST: 127.0.0.1
           DB_PORT: 3306
 
