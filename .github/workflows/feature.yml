@@ -1,0 +1,83 @@
+name: Run by push to feature branch
+
+on:
+  push:
+    branches:
+      - 'feature/*'
+
+jobs:
+  laravel-setup-and-lint-test:
+    runs-on: ubuntu-latest
+    services:
+      mysql:
+        image: mysql:8.0
+        ports:
+          - 3306/tcp
+        env:
+          MYSQL_ROOT_PASSWORD: ''
+          MYSQL_DATABASE: 'to_camp'
+          MYSQL_ALLOW_EMPTY_PASSWORD: 'yes'
+        options: >-
+          --health-cmd "mysqladmin ping -h localhost"
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: PHP set up
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: 8.1
+          tools: composer:v2.5.5
+          extensions: 'mysql, mysqli, pdo_mysql'
+
+      - name: Add permissions
+        run: chmod -R 777 src/storage src/bootstrap/cache
+        shell: bash
+
+      - name: Composer install
+        run: |
+          cd src/
+          composer install -n --prefer-dist
+        shell: bash
+
+      - name: Set up npm
+        run: |
+          cd src/
+          npm install
+          npm run build
+        shell: bash
+
+      - name: Run code sniffer
+        run: |
+          cd src/
+          ./vendor/bin/phpcs --standard=phpcs.xml ./
+        shell: bash
+
+      - name: Prepare testing
+        run: |
+          cd src/
+          cp .env.example .env
+          php artisan key:generate
+        shell: bash
+
+      - name: Run migration
+        run: |
+          cd src/
+          php artisan migrate:refresh
+        env:
+          APP_ENV: 'testing'
+          DB_HOST: 127.0.0.1
+          DB_PORT: ${{ job.services.mysql.ports['3306'] }}
+        shell: bash
+
+      - name: Run phpunit
+        run: |
+          cd src/
+          php artisan test
+        env:
+          APP_ENV: 'testing'
+          DB_HOST: 127.0.0.1
+          DB_PORT: ${{ job.services.mysql.ports['3306'] }}
+        shell: bash
