@@ -14,4 +14,4 @@ primary_region = "nrt"
   min_machines_running = 0
 
 [build]
-  dockerfile = "./docker/php/"
+  dockerfile = "docker/php"
