@@ -42,6 +42,12 @@ jobs:
           composer install -n --prefer-dist
         shell: bash
 
+      - name: Npm install
+        run: |
+          cd src/
+          npm install
+        shell: bash
+
       - name: Run code sniffer
         run: |
           cd src/
