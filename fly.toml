@@ -14,5 +14,4 @@ primary_region = "nrt"
   min_machines_running = 0
 
 [build]
-  dir = "to_camp"
-  dockerfile = "docker/php"
+  image = "docker/php"
