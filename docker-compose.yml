@@ -7,7 +7,7 @@ services:
       - .:/var/www
     ports:
       - 18888:80
-    container_name: ${PHP_CONTAINER}
+    container_name: php
 
   mysql:
     image: mysql:8.0
