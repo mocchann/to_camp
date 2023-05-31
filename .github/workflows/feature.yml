@@ -33,38 +33,33 @@ jobs:
           extensions: 'mysql, mysqli, pdo_mysql'
 
       - name: Add permissions
-        run: chmod -R 777 src/storage src/bootstrap/cache
+        run: chmod -R 777 storage bootstrap/cache
         shell: bash
 
       - name: Composer install
         run: |
-          cd src/
           composer install -n --prefer-dist
         shell: bash
 
       - name: Set up npm
         run: |
-          cd src/
           npm install
           npm run build
         shell: bash
 
       - name: Run code sniffer
         run: |
-          cd src/
           ./vendor/bin/phpcs --standard=phpcs.xml ./
         shell: bash
 
       - name: Prepare testing
         run: |
-          cd src/
           cp .env.example .env
           php artisan key:generate
         shell: bash
 
       - name: Run migration
         run: |
-          cd src/
           php artisan migrate:refresh
         env:
           APP_ENV: 'testing'
@@ -74,7 +69,6 @@ jobs:
 
       - name: Run phpunit
         run: |
-          cd src/
           php artisan test
         env:
           APP_ENV: 'testing'
