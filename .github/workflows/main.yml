@@ -9,9 +9,8 @@ jobs:
   deploy-to-fly:
     runs-on: ubuntu-latest
     steps:
+      - run: cd ..
       - uses: actions/checkout@v3
-      - run: pwd
-        shell: bash
 
       - uses: superfly/flyctl-actions/setup-flyctl@master
 
