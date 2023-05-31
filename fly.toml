@@ -11,6 +11,7 @@ console_command = "php /var/www/html/artisan tinker"
   [build.args]
     NODE_VERSION = "18"
     PHP_VERSION = "8.0"
+  dockerfile = "docker/php"
 
 [env]
   APP_ENV = "production"
@@ -24,6 +25,3 @@ console_command = "php /var/www/html/artisan tinker"
   auto_stop_machines = true
   auto_start_machines = true
   min_machines_running = 0
-
-[build]
-  dockerfile = "docker/php"
