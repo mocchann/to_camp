@@ -11,11 +11,6 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - run: |
-          ls -la
-          pwd
-        shell: bash
-
       - name: Set up PHP
         uses: shivammathur/setup-php@v2
         with:
