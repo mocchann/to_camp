@@ -3,8 +3,8 @@ FROM php:8.1-apache
 RUN cd /etc/apache2/mods-enabled \
     && ln -s ../mods-available/rewrite.load
 
-COPY docker/php/php.ini /usr/local/etc/php/
-COPY docker/php/000-default.conf /etc/apache2/sites-enabled/
+COPY ./php/ /usr/local/etc/php/
+COPY ./apache/ /etc/apache2/sites-enabled/
 
 RUN cd /usr/bin && curl -s http://getcomposer.org/installer | php && ln -s /usr/bin/composer.phar /usr/bin/composer
 
