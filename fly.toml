@@ -8,7 +8,7 @@ primary_region = "nrt"
 console_command = "php /var/www/html/artisan tinker"
 
 [build]
-  dockerfile = "docker/php/Dockerfile"
+  dockerfile = "docker/Dockerfile"
 
 [env]
   APP_ENV = "production"
