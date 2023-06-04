@@ -6,8 +6,6 @@ RUN cd /etc/apache2/mods-enabled \
 COPY ./php/ /usr/local/etc/php/
 COPY ./apache/ /etc/apache2/sites-enabled/
 
-RUN cd /usr/bin && curl -s http://getcomposer.org/installer | php && ln -s /usr/bin/composer.phar /usr/bin/composer
-
 RUN apt-get update \
     && apt-get install -y git zip unzip libzip-dev vim \
     libpng-dev libpq-dev libfreetype6-dev libjpeg-dev libonig-dev \
@@ -17,14 +15,6 @@ RUN docker-php-ext-configure gd \
     --with-freetype=/usr/include/ \
     --with-jpeg=/usr/include \
     && docker-php-ext-install -j$(nproc) gd
-
-ENV COMPOSER_ALLOW_SUPERUSER 1
-ENV COMPOSER_HOME /composer
-ENV PATH $PATH:/composer/vendor/bin
-
-COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
-
-RUN composer self-update --2
 
 RUN curl -sL https://deb.nodesource.com/setup_12.x | bash -
 RUN rm -rf node_modules
