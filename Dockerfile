@@ -25,4 +25,4 @@ RUN npm cache clear --force
 RUN npm install webpack --save
 RUN npm install node-sass --nodedir=/usr/bin/node
 
-WORKDIR /var/www/
+WORKDIR /var/www/html

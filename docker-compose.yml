@@ -4,7 +4,7 @@ services:
   php:
     build: .
     volumes:
-      - .:/var/www
+      - .:/var/www/html
     ports:
       - 18888:80
     container_name: php
