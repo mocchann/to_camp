@@ -28,17 +28,28 @@ jobs:
       - name: PHP set up
         uses: shivammathur/setup-php@v2
         with:
-          php-version: 8.1
-          tools: composer:v2.5.5
+          php-version: 8.1.19
+          tools: composer:v2.5.7
           extensions: 'mysql, mysqli, pdo_mysql'
+
+      - name: Composer cache
+        id: composer-cache
+        run: echo "dir=$(composer config cache-file-dir)" >> $GITHUB_OUTPUT
+        shell: bash
+
+      - name: Cache dependencies
+        uses: actions/cache@v3
+        with:
+          path: ${{ steps.composer-cache.outputs.dir }}
+          key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.lock') }}
+          restore-key: ${{ runner.os }}-composer
 
       - name: Add permissions
         run: chmod -R 777 storage bootstrap/cache
         shell: bash
 
       - name: Composer install
-        run: |
-          composer install -n --prefer-dist
+        run: composer install -n --prefer-dist
         shell: bash
 
       - name: Set up npm
