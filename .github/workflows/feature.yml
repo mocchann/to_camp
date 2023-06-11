@@ -25,6 +25,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
+      - run: php -v
       # - name: PHP set up
       #   uses: shivammathur/setup-php@v2
       #   with:
