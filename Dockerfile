@@ -30,7 +30,7 @@ RUN composer self-update --2
 RUN curl -sL https://deb.nodesource.com/setup_12.x | bash -
 RUN rm -rf node_modules
 RUN apt-get install -y nodejs
-RUN npm install npm -g n --save-dev cross-env
+RUN npm install
 RUN n 16.17.0
 RUN npm cache clear --force
 RUN npm install webpack --save
