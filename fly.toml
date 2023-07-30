@@ -1,0 +1,27 @@
+# fly.toml app configuration file generated for to-camp on 2023-05-31T23:41:50+09:00
+#
+# See https://fly.io/docs/reference/configuration/ for information about how to use this file.
+#
+
+app = "to-camp"
+primary_region = "nrt"
+console_command = "php /var/www/html/artisan tinker"
+
+[build]
+  dockerfile = "./Dockerfile"
+
+[deploy]
+  release_command = "composer install -n --prefer-dist"
+
+[env]
+  APP_ENV = "production"
+  LOG_CHANNEL = "stderr"
+  LOG_LEVEL = "info"
+  LOG_STDERR_FORMATTER = "Monolog\\Formatter\\JsonFormatter"
+
+[http_service]
+  internal_port = 80
+  force_https = true
+  auto_stop_machines = true
+  auto_start_machines = true
+  min_machines_running = 0
