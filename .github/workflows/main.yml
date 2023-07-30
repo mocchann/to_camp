@@ -37,17 +37,6 @@ jobs:
         run: composer install -n --prefer-dist
         shell: bash
 
-      - name: Set up npm
-        run: |
-          npm install
-          npm run build
-        shell: bash
-
-      - name: check npm
-        run: |
-          node --version
-          npm -v
-
       - uses: superfly/flyctl-actions/setup-flyctl@master
 
       - name: Deploy to fly
