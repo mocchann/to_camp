@@ -3,7 +3,7 @@ name: Deploy to fly
 on:
   push:
     branches:
-      - 'feature/*'
+      - 'main'
 
 jobs:
   deploy-to-fly:
