@@ -18,6 +18,7 @@ console_command = "php /var/www/html/artisan tinker"
 
 [http_service]
   internal_port = 8080
+  protocol = "tcp"
   force_https = true
   auto_stop_machines = true
   auto_start_machines = true
