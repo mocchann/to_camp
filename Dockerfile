@@ -26,5 +26,8 @@ ENV PATH $PATH:/composer/vendor/bin
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
 RUN composer self-update --2
+RUN composer install -n --prefer-dist
+RUN npm install
+RUN npm run build
 
 WORKDIR /var/www/html

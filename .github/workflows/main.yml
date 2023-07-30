@@ -17,26 +17,6 @@ jobs:
           php-version: 8.1.19
           tools: composer:v2.5.7
 
-      - name: Composer cache
-        id: composer-cache
-        run: echo "dir=$(composer config cache-file-dir)" >> $GITHUB_OUTPUT
-        shell: bash
-
-      - name: Cache dependencies
-        uses: actions/cache@v3
-        with:
-          path: ${{ steps.composer-cache.outputs.dir }}
-          key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.lock') }}
-          restore-key: ${{ runner.os }}-composer
-
-      - name: Add permissions
-        run: chmod -R 777 storage bootstrap/cache
-        shell: bash
-
-      - name: Composer install
-        run: composer install -n --prefer-dist
-        shell: bash
-
       - uses: superfly/flyctl-actions/setup-flyctl@master
 
       - name: Deploy to fly
