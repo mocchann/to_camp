@@ -27,6 +27,5 @@ COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
 RUN composer self-update --2
 RUN composer install -n --prefer-dist
-RUN npm install
 
 WORKDIR /var/www/html
