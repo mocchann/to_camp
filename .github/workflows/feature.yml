@@ -31,8 +31,6 @@ jobs:
           php-version: 8.1.19
           tools: composer:v2.5.7
 
-      - run: php -v
-
       - name: Composer cache
         id: composer-cache
         run: echo "dir=$(composer config cache-file-dir)" >> $GITHUB_OUTPUT
