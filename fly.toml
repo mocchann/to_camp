@@ -10,9 +10,6 @@ console_command = "php /var/www/html/artisan tinker"
 [build]
   dockerfile = "./Dockerfile"
 
-[deploy]
-  release_command = "composer install -n --prefer-dist"
-
 [env]
   APP_ENV = "production"
   LOG_CHANNEL = "stderr"
